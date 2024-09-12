@@ -32,7 +32,7 @@ float min(float tab[], int len){
 }
 float srednia(float tab[], int len){
     int tmp= 0;
-    for(int i = 1; i < len; i++){
+    for(int i = 0; i < len; i++){
         tmp += tab[i];
     }
     return tmp/len;
@@ -50,6 +50,11 @@ int main(){
     for(int i = 0; i < liczba_ocen; i++){
         cout<<"podaj liczbe "<< i + 1<<" : ";
         cin>>tab[i];
+        if(tab[i] == 0){
+            i--;
+            liczba_ocen--;
+            continue;
+        }
         while (isvalid(tab[i])){
             cout<<"wpisz jeszcze raz";
             cin>>tab[i];
