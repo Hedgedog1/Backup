@@ -13,7 +13,7 @@ bool isvalid(float value){
 }
 
 float max(float tab[], int len){
-    int tmp= tab[0];
+    float tmp= tab[0];
     for(int i = 1; i < len; i++){
         if(tab[i] > tmp){
             tmp=tab[i];
@@ -22,13 +22,20 @@ float max(float tab[], int len){
     return tmp;
 }
 float min(float tab[], int len){
-    int tmp= tab[0];
+    float tmp= tab[0];
     for(int i = 1; i < len; i++){
         if(tab[i] < tmp){
             tmp=tab[i];
         }
     }
     return tmp;
+}
+float srednia(float tab[], int len){
+    int tmp= 0;
+    for(int i = 1; i < len; i++){
+        tmp += tab[i];
+    }
+    return tmp/len;
 }
 int main(){
     int liczba_ocen;
@@ -39,7 +46,7 @@ int main(){
         cin>>liczba_ocen;
     }
     float tab[10000];
-    cout<<"Podaj wartość liczby";
+    cout<<"Podaj wartość liczby\n";
     for(int i = 0; i < liczba_ocen; i++){
         cout<<"podaj liczbe "<< i + 1<<" : ";
         cin>>tab[i];
@@ -49,5 +56,6 @@ int main(){
         }
     }
     cout<<"Najmniejszy numer "<< min(tab,liczba_ocen)<<endl;
+    cout<<"Średnia "<< srednia(tab,liczba_ocen)<<endl;
     cout<<"Największy numer "<< max(tab,liczba_ocen);
 }
